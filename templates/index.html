@@ -10,11 +10,13 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
   </head>
-  <body>
+  <body class="bg-dark">
     <div class="container">
       <!-- Add Jumbotron to Header -->
-      <div class="jumbotron text-center">
+      <div class="jumbotron text-center" style="background-image: url(http://www.californiafootgolfclub.com/static/img/footgolf-1.jpg); background-size: 100%;">
+        <div class="text-dark">
         <h1>Mission to Mars</h1>
+        </div>
         <!-- Add a button to activate scraping script -->
         <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
       </div>
@@ -26,7 +28,7 @@
             <div class="media-body">
               <h2>Latest Mars News</h2>
               <h4 class="media-heading">{{ mars.news_title }}</h4>
-              <p>{{ mars.news_paragraph }}</p>
+              <p><i>{{ mars.news_paragraph }}</i></p>
             </div>
           </div>
         </div>
@@ -48,7 +50,7 @@
         <div class="col-md-4">
           <!-- Mars Facts -->
           <div class="row" id="mars-facts">
-            <h4>Mars Facts</h4>
+            <h3>Mars Facts</h3>
             {{ mars.facts | safe }}
           </div>
         </div>
@@ -61,7 +63,7 @@
         </div>
 
         {% for hemisphere in mars.hemi_images %}
-        <div class="col-md-6">
+        <div class="col-xs-6">
           <div class="thumbnail">
             <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="...">
             <div class="caption">
